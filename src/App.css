@@ -106,5 +106,6 @@ a:hover {
   border-bottom: 1px solid #eee;
   margin-bottom: 20px;
   animation-name: example;
-  animation-duration: 2s;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
 }
