@@ -36,6 +36,10 @@ var publicUrl = ensureSlash(homepagePathname, false);
 // Get enrivonment variables to inject into our app.
 var env = getClientEnvironment(publicUrl);
 
+// For markdown-it-loader
+var subscript = require('markdown-it-sub');
+var superscript = require('markdown-it-sup');
+
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
 if (env['process.env.NODE_ENV'] !== '"production"') {
@@ -97,6 +101,11 @@ module.exports = {
       }
     ],
     loaders: [
+      // Markdown
+      {
+        test: /\.md$/,
+        loader: 'html!markdown-it'
+      },
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
@@ -155,6 +164,12 @@ module.exports = {
         }
       }
     ]
+  },
+
+  'markdown-it': {
+    preset: 'default',
+    typographer: true,
+    use: [subscript, superscript]
   },
 
   // We use PostCSS for autoprefixing only.
