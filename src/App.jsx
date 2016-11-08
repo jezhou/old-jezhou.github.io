@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import profilePic from './profile.jpg';
 import './App.css'
@@ -13,7 +14,14 @@ class App extends Component {
     return (
       <div className='profile-container animated fadeIn' style={backgroundImage}>
         <div className="page-container">
-          {this.props.children}
+        <ReactCSSTransitionGroup
+          transitionName="example"
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+            {this.props.children}
+        </ReactCSSTransitionGroup>
         </div>
       </div>
     );

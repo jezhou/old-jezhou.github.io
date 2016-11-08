@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
+import './page.css'
 
 class Template extends Component {
-  debugger;
+  componentWillMount() {
+    console.log(`mounting ${this.props.title}`)
+  }
+  componentWillUnmount() {
+    console.log(`unmounting ${this.props.title}`)
+  }
   render() {
     return (
       <div key={this.props.title} className='container'>
