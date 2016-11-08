@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactCSSTransitionReplace from 'react-css-transition-replace';
+
 
 import profilePic from './profile.jpg';
 import './App.css'
@@ -11,17 +12,16 @@ class App extends Component {
       backgroundImage: 'url(' + profilePic + ')',
       backgroundPosition: '60% 70%'
     };
+    console.log("The key is " + this.props.location.pathname)
     return (
       <div className='profile-container animated fadeIn' style={backgroundImage}>
         <div className="page-container">
-        <ReactCSSTransitionGroup
-          transitionName="example"
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
-            {this.props.children}
-        </ReactCSSTransitionGroup>
+        <ReactCSSTransitionReplace
+          transitionName="roll-up"
+          transitionEnterTimeout={1500}
+          transitionLeaveTimeout={1500}>
+            {React.cloneElement(this.props.children, {key: this.props.location.pathname})}
+        </ReactCSSTransitionReplace>
         </div>
       </div>
     );

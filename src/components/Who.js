@@ -8,9 +8,11 @@ class Who extends Component {
     const parser = new HtmlToReact.Parser(React);
     const content = parser.parse("<div>" + projects + "</div>");
     return (
-      <Template title='About me'>
-        {content}
-      </Template>
+      <div>
+        <Template title='About me'>
+          {content}
+        </Template>
+      </div>
     )
   }
 }

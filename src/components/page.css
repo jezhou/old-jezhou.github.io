@@ -1,8 +1,25 @@
-.example-appear {
-  opacity: 0.01;
+/* Roll-up transition */
+
+.roll-up-leave {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.roll-up-leave.roll-up-leave-active {
+  transform: translate(-100%, 0);
+  opacity: 0;
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
 }
 
-.example-appear.example-appear-active {
+.roll-up-enter {
+  transform: translate(-100%, 0);
+  opacity: 0;
+}
+.roll-up-enter.roll-up-enter-active {
+  transform: translate(0, 0);
   opacity: 1;
-  transition: opacity .5s ease-in;
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.roll-up-height {
+  transition: height 1.5s ease-out;
 }
