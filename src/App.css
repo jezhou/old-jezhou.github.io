@@ -96,16 +96,8 @@ a:hover {
   margin-bottom: 20px;
 }
 
-@keyframes example {
-    from {width: 0%;}
-    to {width: 100%;}
-}
-
 .divider {
   width: 100%;
   border-bottom: 1px solid #eee;
   margin-bottom: 20px;
-  animation-name: example;
-  animation-duration: 4s;
-  animation-iteration-count: 1;
 }
